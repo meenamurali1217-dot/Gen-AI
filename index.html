@@ -3,801 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meena Murali - Portfolio</title>
+    <title>Meena Murali | Full-Stack Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <!-- Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary: #014f86;
+            --accent: #ffd700;
+            --text: #2d3436;
+            --light-bg: #f0f4f8;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #014f86 0%, #002855 100%);
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f0f4f8;
-            background-attachment: fixed;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--light-bg);
+            color: var(--text);
             overflow-x: hidden;
-            min-height: 100vh;
+            scroll-behavior: smooth;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
+        section { padding: 60px 0; position: relative; }
+
+        /* --- Navigation --- */
         header {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            top: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #014f86;
-        }
-        .nav-menu {
-            display: flex;
-            list-style: none;
-        }
-        .nav-menu li {
-            margin-left: 2rem;
-        }
-        .nav-menu a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        .nav-menu a:hover {
-            color: #014f86;
-        }
-        .hamburger {
-            display: none;
-            cursor: pointer;
-        }
-        .hamburger div {
-            width: 25px;
-            height: 3px;
-            background: #333;
-            margin: 5px;
-            transition: 0.3s;
-        }
-        section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 100px 0;
-        }
+
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+        .logo { font-size: 1.6rem; font-weight: 800; color: var(--primary); letter-spacing: -1px; }
+        .nav-menu { display: flex; list-style: none; gap: 2rem; }
+        .nav-menu a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.9rem; transition: 0.3s; text-transform: uppercase; }
+        .nav-menu a:hover { color: var(--primary); }
+
+        /* --- Hero Section --- */
         .hero {
-            background: #014f86;
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            border: none;
+            background: var(--gradient);
+            color: var(--white);
+            padding: 160px 0 80px;
+            clip-path: ellipse(150% 100% at 50% 0%);
         }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="60" cy="80" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="60" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
-            background-size: 100px 100px;
-            animation: float 20s linear infinite;
-        }
-        @keyframes float {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-100px); }
-        }
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        .hero-text {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .hero-text h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #fff, #ffd700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 1s ease-out;
-        }
-        .hero-text .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #e8f4f8;
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-        .hero-text p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-        .hero-image {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
+
+        .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center; }
+        .hero-text h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 1rem; }
+        .hero-text i { color: var(--accent); font-style: italic; }
+        .subtitle { font-size: 1.2rem; color: #ffd700; margin-bottom: 1.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+        
+        .hero-image { position: relative; }
         .hero-image img {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            border: 5px solid rgba(255,255,255,0.3);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            animation: fadeInUp 1s ease-out 0.6s both;
-        }
-        .hero-stats {
-            display: flex;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .stat {
-            text-align: center;
-            animation: fadeInUp 1s ease-out 0.8s both;
-        }
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #ffd700;
-        }
-        .stat-label {
-            font-size: 0.9rem;
-            color: #e8f4f8;
-        }
-        .btn {
-            display: inline-block;
-            background: #ffd700;
-            color: #333;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-        .btn:hover {
-            background: #ffed4e;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255,215,0,0.3);
-        }
-        .about {
-            background: white;
-            color: #333;
-        }
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #014f86;
-        }
-        .about-text p {
-            color: #666;
-        }
-        .about-image {
-            text-align: center;
-        }
-        .about-image img {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 8px solid #014f86;
-            box-shadow: 0 10px 30px rgba(1, 79, 134, 0.3);
-        }
-        .education {
-            background: white;
-        }
-        .education h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #014f86;
-        }
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .education-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-            color: #333;
-        }
-        .education-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #014f86, #014f86);
-        }
-        .education-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-        .education-icon {
-            font-size: 3rem;
-            color: #014f86;
-            margin-bottom: 1rem;
-        }
-        .education-card h3 {
-            color: #014f86;
-            margin-bottom: 0.5rem;
-            font-size: 1.5rem;
-        }
-        .education-card .year {
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-        .education-card p {
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-        .languages {
-            background: white;
-        }
-        .languages h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #014f86;
-        }
-        .languages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .language-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-            color: #333;
-        }
-        .language-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #014f86, #014f86);
-        }
-        .language-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-        .language-icon {
-            font-size: 3rem;
-            color: #014f86;
-            margin-bottom: 1rem;
-        }
-        .language-card h3 {
-            color: #014f86;
-            margin-bottom: 0.5rem;
-            font-size: 1.5rem;
-        }
-        .skills {
-            background: white;
-        }
-        .skills h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #014f86;
-        }
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-        .skill-card {
-            background: #edf6f9;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            color: #333;
-        }
-        .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            border-color: #ffd700;
-        }
-        .skill-card i {
-            font-size: 3rem;
-            color: #014f86;
-            margin-bottom: 1rem;
-        }
-        .skill-card h3 {
-            margin-bottom: 1rem;
-            color: #333;
-        }
-        .projects {
-            background: white;
-        }
-        .projects h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #014f86;
-        }
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            color: #333;
-        }
-        .project-card:hover {
-            transform: translateY(-10px);
-        }
-        .project-image {
-            height: 200px;
-            background: linear-gradient(135deg, #014f86 0%, #85c1e9 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 4rem;
-        }
-        .project-content {
-            padding: 1.5rem;
-        }
-        .project-content h3 {
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-        .project-content p {
-            margin-bottom: 1rem;
-            color: #666;
-        }
-        .project-link {
-            color: #014f86;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .contact {
-            background: #014f86;
-            color: #e9ecef;
-        }
-        .contact h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: white;
-        }
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-        .contact-info h3 {
-            margin-bottom: 2rem;
-            font-size: 1.5rem;
-        }
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-        .contact-item i {
-            font-size: 1.5rem;
-            margin-right: 1rem;
-            width: 30px;
-        }
-        .contact-item a {
-            color: white;
-            text-decoration: none;
-        }
-        .contact-form h3 {
-            margin-bottom: 2rem;
-            font-size: 1.5rem;
-        }
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        .form-group input,
-        .form-group textarea {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #e1e8ed;
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 1rem;
-            background: #ffffff;
-            color: #333;
-            transition: border-color 0.3s, box-shadow 0.3s;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            border: 8px solid rgba(255,255,255,0.1);
+            transition: 0.5s;
         }
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #014f86;
-            box-shadow: 0 0 0 3px rgba(1, 79, 134, 0.1);
+        .hero-image img:hover { transform: scale(1.02) rotate(2deg); }
+        
+        /* Achievement Badge */
+        .achievement-badge {
+            position: absolute;
+            bottom: 0; left: -20px;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            max-width: 180px;
+            line-height: 1.2;
         }
-        .submit-btn {
-            background: #ffd700;
-            color: #333;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        .submit-btn:hover {
-            background: #ffed4e;
-            transform: translateY(-2px);
-        }
-        footer {
-            background: #f8f9fa;
-            color: #333;
-            text-align: center;
-            padding: 2rem 0;
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+
+        /* --- Shared Components --- */
+        .section-header { margin-bottom: 2.5rem; }
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--primary); }
+        .underline { width: 50px; height: 4px; background: var(--accent); margin-top: 8px; }
+
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .glass-card { background: var(--white); padding: 2rem; border-radius: 20px; border: 1px solid rgba(0,0,0,0.03); transition: 0.3s; height: 100%; }
+        .glass-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
+
+        /* --- Education & Training --- */
+        .meta { color: var(--primary); font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 0.5rem; }
+
+        /* --- Skills --- */
+        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1rem; }
+        .skill-tag { background: #eef2f7; color: var(--primary); padding: 6px 15px; border-radius: 50px; font-weight: 600; font-size: 0.85rem; }
+
+        /* --- Projects --- */
+        .project-card { background: var(--white); border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; }
+        .project-img { height: 200px; background: var(--gradient); display: flex; align-items: center; justify-content: center; font-size: 4rem; color: var(--white); position: relative; }
+        .project-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(1, 79, 134, 0.9); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; }
+        .project-card:hover .project-overlay { opacity: 1; }
+        .project-body { padding: 1.5rem; flex-grow: 1; }
+
+        /* --- Contact --- */
+        .contact-box { background: var(--primary); border-radius: 30px; padding: 3rem; color: var(--white); display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        input, textarea { width: 100%; padding: 12px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; color: white; margin-bottom: 1rem; }
+        .btn-accent { background: var(--accent); color: var(--primary); padding: 12px 30px; border: none; border-radius: 50px; font-weight: 800; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        .btn-accent:hover { transform: scale(1.05); }
+
+        footer { padding: 30px 0; text-align: center; background: #f8f9fa; color: #999; font-size: 0.8rem; }
+
         @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-            .nav-menu {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-                flex-direction: column;
-                align-items: center;
-                padding: 1rem 0;
-                transform: translateY(-100%);
-                transition: transform 0.3s;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-            }
-            .nav-menu.active {
-                transform: translateY(0);
-            }
-            .nav-menu li {
-                margin: 1rem 0;
-            }
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 2rem;
-            }
-            .hero-text h1 {
-                font-size: 3rem;
-            }
-            .hero-stats {
-                justify-content: center;
-            }
-            .hero-image img {
-                width: 200px;
-                height: 200px;
-            }
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .education-grid {
-                grid-template-columns: 1fr;
-            }
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
+            .hero-grid, .contact-box { grid-template-columns: 1fr; }
+            .nav-menu { display: none; }
         }
     </style>
 </head>
 <body>
+
     <header>
         <nav class="container">
-            <div class="logo">Meena Murali</div>
+            <div class="logo">MEENA.</div>
             <ul class="nav-menu">
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#languages">Languages</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#projects">Work</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="hamburger">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
         </nav>
     </header>
 
+    <!-- HERO SECTION -->
     <section id="hero" class="hero">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Hi, I'm Meena Murali</h1>
-                    <p class="subtitle">Building My Future as a Full-Stack Developer</p>
-                    <p>I'm always excited to learn new things and explore fresh ideas. I have a natural curiosity that drives me to ask questions and understand concepts deeply. My positive attitude and willingness to improve help me grow both personally and professionally.</p>
-                    
-                    <a href="#about" class="btn">Discover More</a>
+            <div class="hero-grid">
+                <div class="hero-text" data-aos="fade-right">
+                    <p class="subtitle">Full-Stack Web Developer</p>
+                    <h1>Meena <i>Murali</i></h1>
+                    <p>Building high-performance web applications with a focus on logic, clean code, and intuitive user experiences. Passionate about turning complex problems into functional digital reality.</p>
+                    <div style="margin-top: 2rem;">
+                        <a href="#contact" class="btn-accent" style="text-decoration:none;">Hire Me</a>
+                        <a href="#projects" style="color:white; margin-left:20px; text-decoration:none; font-weight:600;">View Projects →</a>
+                    </div>
                 </div>
-                <div class="hero-image">
+                <div class="hero-image" data-aos="zoom-in">
                     <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjI6wK2tGyTm0i11ZgMf0ulzThqJcCkU04W4dTbJAoZjWnBddFeDse1e9uZIcixevZwOmd4eeI5P3OoyRm881hBG645NMmQUFg_WsR5RSVB6lLtuvUrrxdjasu9csL-MVwrrCuSFD1lUmH96JbLWOnJQM7VM0r4uEnZSSzZ_6ARyxUMeqm73jLZBkDs98U/s320/667cdb94-29a8-4ac9-bc16-4284ebb03a1c.jpeg" alt="Meena Murali">
+                    <div class="achievement-badge">
+                        <i class="fas fa-trophy"></i> Quarterly Top Performer <br><small>ACT Program (Freshworks/Edunet)</small>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="about">
+    <!-- ABOUT & OBJECTIVE -->
+    <section id="about">
         <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>About Me</h2>
-                    <p>Motivated Full Stack Web Developer in training with a strong foundation in web development and employability skills gained through the ACT program. Experienced in collaborative projects such as EcoSphere, enhancing practical abilities and teamwork.</p>
-                    <p>Seeking an entry-level position in a growth-oriented organization to apply development skills and contribute to continuous learning and innovation.</p>
+            <div class="section-header" data-aos="fade-up">
+                <h2>The Objective</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="glass-card" data-aos="fade-up">
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #555;">
+                    Motivated Full Stack Web Developer with a robust foundation in modern development architecture. Through the rigorous <b>Academy for Careers in Technology (ACT)</b> by Freshworks, I have mastered the art of building scalable front-end and back-end systems. I am seeking an entry-level position where I can apply my expertise in <b>Python, JavaScript, and SQL</b> to contribute to innovative, growth-oriented projects.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" style="background: #fff;">
+        <div class="container">
+            <div class="section-header" data-aos="fade-right">
+                <h2>Technical Toolkit</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="card-grid">
+                <div class="glass-card" data-aos="fade-up">
+                    <h3><i class="fas fa-laptop-code" style="color:var(--primary);"></i> Development</h3>
+                    <div class="skills-container">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
                 </div>
-                <div class="about-image">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLFDaIbG0y8r8m8FKm5uEVZ7CnNdAXYzOfAVYFOg24zd_UYW4QoXqTGHj7gS5kvIp2cyf9wqzAqHfun0-_wMsOF8-rJ4clF7Ui4g7cpGbh_Rm8mKFoPLQgnufvDvhLz58Qcka1hiweU7Scn4hdSxLcWUteHYy8KvmEXtVSociY9qGwjcwSFz5D3eleybY/s320/WhatsApp%20Image%202026-04-28%20at%2012.17.06%20PM.jpeg" alt="Meena Murali">
+                <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3><i class="fas fa-tools" style="color:var(--primary);"></i> Tools & Cloud</h3>
+                    <div class="skills-container">
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Netlify</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">DOM Manipulation</span>
+                    </div>
+                </div>
+                <div class="glass-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3><i class="fas fa-users" style="color:var(--primary);"></i> Professional</h3>
+                    <div class="skills-container">
+                        <span class="skill-tag">Public Speaking</span>
+                        <span class="skill-tag">Agile Teamwork</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Spoken English</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="education" class="education">
+    <!-- EXPERIENCE & EDUCATION -->
+    <section id="experience">
         <div class="container">
-            <h2>My Education</h2>
-            <div class="education-grid">
-                <div class="education-card">
-                    <i class="fas fa-graduation-cap education-icon"></i>
-                    <h3>Class 12 (Commerce)</h3>
-                    <div class="year">2015</div>
-                    <p>Telangana Open School Society</p>
-                    <p>Percentage: 52%</p>
+            <div class="card-grid">
+                <!-- Training -->
+                <div data-aos="fade-right">
+                    <div class="section-header">
+                        <h2>Training & Internship</h2>
+                        <div class="underline"></div>
+                    </div>
+                    <div class="glass-card">
+                        <span class="meta">08/2025 - CURRENT</span>
+                        <h3 style="color:var(--primary);">Academy for Careers in Technology (ACT)</h3>
+                        <p style="font-size: 0.9rem; margin-top: 10px; color:#666;">
+                            <b>Powered by Freshworks & Edunet Foundation</b><br>
+                            Specializing in Full Stack Web Development. Gaining hands-on experience in building enterprise-ready interfaces and handling data management through SQL and Python.
+                        </p>
+                    </div>
                 </div>
-                <div class="education-card">
-                    <i class="fas fa-school education-icon"></i>
-                    <h3>Class 10</h3>
-                    <div class="year">2013</div>
-                    <p>Master Mind High School</p>
-                    <p>Percentage: 54.78%</p>
+                <!-- Education -->
+                <div data-aos="fade-left">
+                    <div class="section-header">
+                        <h2>Education</h2>
+                        <div class="underline"></div>
+                    </div>
+                    <div class="glass-card" style="margin-bottom: 1rem;">
+                        <h3>Class 12 (Commerce)</h3>
+                        <p>Telangana Open School Society | 52%</p>
+                        <span class="meta">2024 - 2025</span>
+                    <br>
+                        <h3>Class 10</h3>
+                        <p>Master Mind High School | 54.78%</p>
+                        <span class="meta">2012 - 2013</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="languages" class="languages">
+    <!-- PROJECTS -->
+    <section id="projects">
         <div class="container">
-            <h2>Languages</h2>
-            <div class="languages-grid">
-                <div class="language-card">
-                    <i class="fas fa-language"></i>
-                    <h3>English</h3>
-                </div>
-                <div class="language-card">
-                    <i class="fas fa-language"></i>
-                    <h3>Hindi</h3>
-                </div>
-                <div class="language-card">
-                    <i class="fas fa-language"></i>
-                    <h3>Telugu</h3>
-                </div>
+            <div class="section-header" data-aos="fade-up">
+                <h2>Practical Work</h2>
+                <div class="underline"></div>
             </div>
-        </div>
-    </section>
-
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2>My Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <i class="fab fa-html5"></i>
-                    <h3>Frontend</h3>
-                    <p>HTML, CSS</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-python"></i>
-                    <h3>Backend</h3>
-                    <p>Python</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-js-square"></i>
-                    <h3>JavaScript</h3>
-                    <p>DOM Manipulation</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-database"></i>
-                    <h3>Database</h3>
-                    <p>SQL</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-github"></i>
-                    <h3>Tools</h3>
-                    <p>VS Code, GitHub, Netlify</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-users"></i>
-                    <h3>Soft Skills</h3>
-                    <p>Teamwork, Problem-solving</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2>My Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
+            <div class="card-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-aos="fade-up">
+                    <div class="project-img">
                         <i class="fas fa-calendar-alt"></i>
+                        <div class="project-overlay">
+                            <a href="https://meenamurali1217-dot.github.io/makeMyEvent/" target="_blank" class="btn-accent" style="text-decoration:none;">View Case Study</a>
+                        </div>
                     </div>
-                    <div class="project-content">
+                    <div class="project-body">
                         <h3>Event-Nest</h3>
-                        <p>Event Management Website connecting customers with trusted vendors for all types of events.</p>
-                        <a href="https://meenamurali1217-dot.github.io/makeMyEvent/" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                        <p style="font-size: 0.9rem; color:#666; margin-top: 10px;">A smart service-aggregator platform that streamlines event planning by connecting users with catering, decoration, and photography vendors.</p>
+                        <div class="skills-container" style="margin-top:15px;">
+                            <span class="skill-tag">JS</span><span class="skill-tag">CSS</span><span class="skill-tag">GitHub</span>
+                        </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-calculator"></i>
+                <!-- Project 2 -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-img" style="background: #e3f2fd;">
+                        <i class="fas fa-calculator" style="color:#014f86;"></i>
+                        <div class="project-overlay">
+                            <a href="https://calculater-with-js.netlify.app" target="_blank" class="btn-accent" style="text-decoration:none;">Launch App</a>
+                        </div>
                     </div>
-                    <div class="project-content">
-                        <h3>Calculator Web App</h3>
-                        <p>Responsive calculator using HTML, CSS, and JavaScript with real-time calculations.</p>
-                        <a href="https://calculater-with-js.netlify.app" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                    <div class="project-body">
+                        <h3>Precision Calculator</h3>
+                        <p style="font-size: 0.9rem; color:#666; margin-top: 10px;">A high-performance web calculator implementing real-time DOM manipulation and responsive UI principles.</p>
+                        <div class="skills-container" style="margin-top:15px;">
+                            <span class="skill-tag">HTML</span><span class="skill-tag">DOM Logic</span><span class="skill-tag">Netlify</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
+    <!-- CERTIFICATIONS & INTERESTS -->
+    <section id="extras" style="background: #fff;">
         <div class="container">
-            <h2>Contact Me</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>meena.murali1217@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>9515043914</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Hyderabad</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <a href="https://linkedin.com/in/meena-murali" target="_blank">LinkedIn Profile</a>
-                    </div>
+            <div class="card-grid">
+                <div data-aos="fade-up">
+                    <div class="section-header"><h2>Certifications</h2><div class="underline"></div></div>
+                    <ul style="list-style: none; color: #555;">
+                        <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color:var(--accent);"></i> Web Development Beginner (Simplilearn)</li>
+                        <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color:var(--accent);"></i> HTML/CSS Foundations</li>
+                        <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color:var(--accent);"></i> Spoken English & Public Speaking</li>
+                    </ul>
                 </div>
-                <div class="contact-form">
-                    <h3>Send a Message</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Send Message</button>
-                    </form>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="section-header"><h2>Interests</h2><div class="underline"></div></div>
+                    <div class="skills-container">
+                        <span class="skill-tag">Dress Designing</span>
+                        <span class="skill-tag">Listening to Music</span>
+                        <span class="skill-tag">Stitching</span>
+                        <span class="skill-tag">Continuous Learning</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-box" data-aos="zoom-in">
+                <div>
+                    <h2 style="font-family:'Playfair Display'; font-size: 2.5rem;">Let's Build <br>The Future.</h2>
+                    <p style="margin: 20px 0; opacity: 0.9;">Available for entry-level roles in Software Development and Collaborations.</p>
+                    <div style="margin-top: 30px;">
+                        <p><i class="fas fa-envelope"></i> meena.murali1217@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +91 9515043914</p>
+                        <p><i class="fab fa-linkedin"></i><a href="https://linkedin.com/in/meena-murali" target="_blank" style="color: var(--accent); text-decoration: underline;"> linkedin.com/in/meena-murali</a></p>
+                    </div>
+                </div>
+                <form>
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <textarea placeholder="Your Message..." rows="4"></textarea>
+                    <button type="submit" class="btn-accent">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>z
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Meena Murali. All rights reserved.</p>
-        </div>
+        <p>&copy; 2026 Meena Murali. Crafted with Passion in Hyderabad.</p>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Smooth scrolling
+        AOS.init({ duration: 1000, once: true, offset: 100 });
+        
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
-        });
-
-        // Hamburger menu
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
         });
     </script>
 </body>
