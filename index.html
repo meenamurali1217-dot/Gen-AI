@@ -3,318 +3,377 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meena Murali | Full-Stack Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Premium Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-    <!-- Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary: #014f86;
-            --accent: #ffd700;
-            --text: #2d3436;
-            --light-bg: #f0f4f8;
-            --white: #ffffff;
-            --gradient: linear-gradient(135deg, #014f86 0%, #002855 100%);
-        }
+    <title>Meena Kota | Frontend & PHP Developer Portfolio</title>
+    <meta name="description" content="Portfolio of Meena Kota - Frontend & PHP Developer with 6 months of hands-on experience in React.js, Responsive UI, WordPress, PHP, MySQL, and API Integrations.">
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    <!-- Fonts: Plus Jakarta Sans, Caveat (for Creative Developer badge) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: var(--light-bg);
-            color: var(--text);
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+    <!-- Three.js Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-        section { padding: 60px 0; position: relative; }
-
-        /* --- Navigation --- */
-        header {
-            position: fixed;
-            top: 0; width: 100%;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(15px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            padding: 20px;
-        }
-
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
-        .logo { font-size: 1.6rem; font-weight: 800; color: var(--primary); letter-spacing: -1px; }
-        .nav-menu { display: flex; list-style: none; gap: 2rem; }
-        .nav-menu a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.9rem; transition: 0.3s; text-transform: uppercase; }
-        .nav-menu a:hover { color: var(--primary); }
-
-        /* --- Hero Section --- */
-        .hero {
-            background: var(--gradient);
-            color: var(--white);
-            padding: 160px 0 80px;
-            clip-path: ellipse(150% 100% at 50% 0%);
-        }
-
-        .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center; }
-        .hero-text h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 1rem; }
-        .hero-text i { color: var(--accent); font-style: italic; }
-        .subtitle { font-size: 1.2rem; color: #ffd700; margin-bottom: 1.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
-        
-        .hero-image { position: relative; }
-        .hero-image img {
-            width: 100%;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            border: 8px solid rgba(255,255,255,0.1);
-            transition: 0.5s;
-        }
-        .hero-image img:hover { transform: scale(1.02) rotate(2deg); }
-        
-        /* Achievement Badge */
-        .achievement-badge {
-            position: absolute;
-            bottom: 0; left: -20px;
-            background: var(--accent);
-            color: var(--primary);
-            padding: 15px;
-            border-radius: 12px;
-            font-weight: 800;
-            font-size: 0.8rem;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            max-width: 180px;
-            line-height: 1.2;
-        }
-
-        /* --- Shared Components --- */
-        .section-header { margin-bottom: 2.5rem; }
-        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--primary); }
-        .underline { width: 50px; height: 4px; background: var(--accent); margin-top: 8px; }
-
-        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-        .glass-card { background: var(--white); padding: 2rem; border-radius: 20px; border: 1px solid rgba(0,0,0,0.03); transition: 0.3s; height: 100%; }
-        .glass-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
-
-        /* --- Education & Training --- */
-        .meta { color: var(--primary); font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 0.5rem; }
-
-        /* --- Skills --- */
-        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1rem; }
-        .skill-tag { background: #eef2f7; color: var(--primary); padding: 6px 15px; border-radius: 50px; font-weight: 600; font-size: 0.85rem; }
-
-        /* --- Projects --- */
-        .project-card { background: var(--white); border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; }
-        .project-img { height: 200px; background: var(--gradient); display: flex; align-items: center; justify-content: center; font-size: 4rem; color: var(--white); position: relative; }
-        .project-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(1, 79, 134, 0.9); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; }
-        .project-card:hover .project-overlay { opacity: 1; }
-        .project-body { padding: 1.5rem; flex-grow: 1; }
-
-        /* --- Contact --- */
-        .contact-box { background: var(--primary); border-radius: 30px; padding: 3rem; color: var(--white); display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-        input, textarea { width: 100%; padding: 12px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; color: white; margin-bottom: 1rem; }
-        .btn-accent { background: var(--accent); color: var(--primary); padding: 12px 30px; border: none; border-radius: 50px; font-weight: 800; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
-        .btn-accent:hover { transform: scale(1.05); }
-
-        footer { padding: 30px 0; text-align: center; background: #f8f9fa; color: #999; font-size: 0.8rem; }
-
-        @media (max-width: 768px) {
-            .hero-grid, .contact-box { grid-template-columns: 1fr; }
-            .nav-menu { display: none; }
-        }
-    </style>
+    <!-- Custom Modern 3D Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+    <!-- ==========================================================================
+         1. NAVBAR
+         ========================================================================== -->
     <header>
-        <nav class="container">
-            <div class="logo">MEENA.</div>
-            <ul class="nav-menu">
-                <li><a href="#hero">Home</a></li>
+        <div class="container nav-container">
+            <a href="#hero" class="brand-logo">
+                MEENA KOTA<span class="dot"></span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#hero" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#projects">Work</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#deliverables">Services</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-        </nav>
+
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <a href="Meena_latest_resume.pdf" download="Meena_latest_resume.pdf" class="btn-download-cv">
+                    <i class="fas fa-download"></i> Download CV
+                </a>
+                <button class="mobile-toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section id="hero" class="hero">
+    <!-- ==========================================================================
+         2. HERO SECTION
+         ========================================================================== -->
+    <section id="hero" class="hero-section">
         <div class="container">
             <div class="hero-grid">
-                <div class="hero-text" data-aos="fade-right">
-                    <p class="subtitle">Full-Stack Web Developer</p>
-                    <h1>Meena <i>Murali</i></h1>
-                    <p>Building high-performance web applications with a focus on logic, clean code, and intuitive user experiences. Passionate about turning complex problems into functional digital reality.</p> <br>
-                   <a href="cv-template.pdf" download> <button class="btn-accent" style="text-decoration:none;">Download CV</button></a>
-                    <div style="margin-top: 2rem;">
-                        <a href="#contact" class="btn-accent" style="text-decoration:none;">Hire Me</a>
-                        <a href="#projects" style="color:white; margin-left:20px; text-decoration:none; font-weight:600;">View Projects →</a>
+                <!-- Left Content -->
+                <div class="hero-content">
+                    <span class="section-badge">Frontend & PHP Developer</span>
+                    <h1>
+                        Hi, I'm<br>
+                        Meena <span class="highlight-wrap">
+                            <span class="highlight-text">Kota</span>
+                            <svg class="yellow-curve" viewBox="0 0 120 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 9C35 3 85 3 118 9" stroke="#FFD21F" stroke-width="4.5" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </h1>
+                    <div class="hero-subtitle">
+                        React.js • Responsive UI • WordPress • API Integrations
+                    </div>
+                    <p class="hero-desc">
+                        Frontend & PHP Developer with 6 months of hands-on experience in developing dynamic, responsive, and cross-browser websites using HTML5, CSS3, JavaScript, React.js, PHP, MySQL, and Bootstrap.
+                    </p>
+
+                    <div class="hero-cta-group">
+                        <a href="Meena_latest_resume.pdf" download="Meena_latest_resume.pdf" class="btn-primary-yellow">
+                            <i class="fas fa-download"></i> Download Resume
+                        </a>
+                        <a href="#contact" class="btn-outline-hire">
+                            <i class="fas fa-paper-plane"></i> Hire Me
+                        </a>
+                    </div>
+
+                    <div class="hero-social-strip">
+                        <a href="https://linkedin.com/in/meena-murali" target="_blank" class="social-circle linkedin" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/meenamurali1217-dot" target="_blank" class="social-circle github" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:meena.murali1217@gmail.com" class="social-circle email" title="Email Me">
+                            <i class="fas fa-envelope"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="hero-image" data-aos="zoom-in">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjI6wK2tGyTm0i11ZgMf0ulzThqJcCkU04W4dTbJAoZjWnBddFeDse1e9uZIcixevZwOmd4eeI5P3OoyRm881hBG645NMmQUFg_WsR5RSVB6lLtuvUrrxdjasu9csL-MVwrrCuSFD1lUmH96JbLWOnJQM7VM0r4uEnZSSzZ_6ARyxUMeqm73jLZBkDs98U/s320/667cdb94-29a8-4ac9-bc16-4284ebb03a1c.jpeg" alt="Meena Murali">
-                    <div class="achievement-badge">
-                        <i class="fas fa-trophy"></i> Quarterly Top Performer <br><small>ACT Program (Freshworks/Edunet)</small>
+
+                <!-- Right Visual: 3D Profile Orb & Floating Elements -->
+                <div class="hero-visual-wrapper">
+                    <div class="dot-pattern-grid"></div>
+
+                    <!-- Floating 3D Spheres -->
+                    <div class="floating-sphere sphere-yellow"></div>
+                    <div class="floating-sphere sphere-blue"></div>
+                    <div class="floating-sphere sphere-translucent"></div>
+
+                    <!-- Orbiting Tech Badges -->
+                    <div class="floating-tech-badge badge-react" title="React.js">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <div class="floating-tech-badge badge-php" title="PHP">
+                        <i class="fab fa-php"></i>
+                    </div>
+                    <div class="floating-tech-badge badge-js" title="JavaScript">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+
+                    <!-- Profile Orb Frame -->
+                    <div class="profile-orb-container">
+                        <div class="profile-orb-frame">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjI6wK2tGyTm0i11ZgMf0ulzThqJcCkU04W4dTbJAoZjWnBddFeDse1e9uZIcixevZwOmd4eeI5P3OoyRm881hBG645NMmQUFg_WsR5RSVB6lLtuvUrrxdjasu9csL-MVwrrCuSFD1lUmH96JbLWOnJQM7VM0r4uEnZSSzZ_6ARyxUMeqm73jLZBkDs98U/s320/667cdb94-29a8-4ac9-bc16-4284ebb03a1c.jpeg" alt="Meena Kota">
+                        </div>
+                    </div>
+
+                    <!-- Creative Developer Script Badge -->
+                    <div class="creative-badge">
+                        Creative<br>Developer
+                        <svg class="badge-curve" viewBox="0 0 110 8" fill="none">
+                            <path d="M2 6C35 2 75 2 108 6" stroke="#FFD21F" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT & OBJECTIVE -->
-    <section id="about">
+    <!-- ==========================================================================
+         3. ABOUT / PROFESSIONAL SUMMARY
+         ========================================================================== -->
+    <section id="about" class="about-section">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>The Objective</h2>
-                <div class="underline"></div>
+            <div class="about-grid">
+                <!-- Left Column -->
+                <div class="about-text">
+                    <span class="section-badge">About Me</span>
+                    <h2 class="section-title">
+                        Professional <span class="text-blue">Summary</span>
+                    </h2>
+                    <p>
+                        Frontend & PHP Developer with 6 months of hands-on experience in developing dynamic, responsive, and cross-browser websites using HTML5, CSS3, JavaScript, React.js, PHP, MySQL, and Bootstrap. Skilled in implementing responsive UI designs, integrating frontend and backend functionality, and developing user-friendly web applications. Hands-on experience with Razorpay payment gateway integration, Gmail-based OTP login, WordPress customization, and website maintenance. Strong understanding of mobile-first design, basic SEO implementation, and performance optimization. Completed real-world project development and OJT experience, with the ability to learn new technologies quickly and work effectively in a team.
+                    </p>
+                    <a href="#skills" class="btn-know-more">
+                        Know More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Right Column: 4 Floating 3D Cards -->
+                <div class="summary-cards-grid">
+                    <div class="summary-card">
+                        <div class="summary-card-icon icon-blue">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>Clean & Modern Code</h4>
+                    </div>
+
+                    <div class="summary-card">
+                        <div class="summary-card-icon icon-red">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>Responsive UI / RWD</h4>
+                    </div>
+
+                    <div class="summary-card">
+                        <div class="summary-card-icon icon-yellow">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                        <h4>API Integrations</h4>
+                    </div>
+
+                    <div class="summary-card">
+                        <div class="summary-card-icon icon-green">
+                            <i class="fab fa-wordpress"></i>
+                        </div>
+                        <h4>WordPress Customization</h4>
+                    </div>
+                </div>
             </div>
-            <div class="glass-card" data-aos="fade-up">
-                <p style="font-size: 1.1rem; line-height: 1.8; color: #555;">
-                    Motivated Full Stack Web Developer with a robust foundation in modern development architecture. Through the rigorous <b>Academy for Careers in Technology (ACT)</b> by Freshworks, I have mastered the art of building scalable front-end and back-end systems. I am seeking an entry-level position where I can apply my expertise in <b>Python, JavaScript, and SQL</b> to contribute to innovative, growth-oriented projects.
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         4. TECHNICAL SKILLS
+         ========================================================================== -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <div class="section-title-row">
+                <div>
+                    <span class="section-badge">My Skills</span>
+                    <h2 class="section-title">Technical <span class="text-blue">Skills</span></h2>
+                </div>
+                <p class="section-desc">
+                    Comprehensive skill set spanning modern frontend frameworks, web development, payment & API integrations, and developer tools.
                 </p>
             </div>
-        </div>
-    </section>
 
-    <!-- SKILLS -->
-    <section id="skills" style="background: #fff;">
-        <div class="container">
-            <div class="section-header" data-aos="fade-right">
-                <h2>Technical Toolkit</h2>
-                <div class="underline"></div>
-            </div>
-            <div class="card-grid">
-                <div class="glass-card" data-aos="fade-up">
-                    <h3><i class="fas fa-laptop-code" style="color:var(--primary);"></i> Development</h3>
-                    <div class="skills-container">
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">SQL</span>
+            <div class="skills-grid">
+                <!-- Card 1: Frontend -->
+                <div class="skill-card">
+                    <div class="skill-card-icon-wrap">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Frontend</h3>
+                    <div class="skill-badges-container">
+                        <span class="skill-pill">HTML5</span>
+                        <span class="skill-pill">CSS3</span>
+                        <span class="skill-pill">JavaScript (ES6+)</span>
+                        <span class="skill-pill">React.js</span>
+                        <span class="skill-pill">Bootstrap</span>
                     </div>
                 </div>
-                <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
-                    <h3><i class="fas fa-tools" style="color:var(--primary);"></i> Tools & Cloud</h3>
-                    <div class="skills-container">
-                        <span class="skill-tag">VS Code</span>
-                        <span class="skill-tag">GitHub</span>
-                        <span class="skill-tag">Netlify</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">DOM Manipulation</span>
-                    </div>
-                </div>
-                <div class="glass-card" data-aos="fade-up" data-aos-delay="200">
-                    <h3><i class="fas fa-users" style="color:var(--primary);"></i> Professional</h3>
-                    <div class="skills-container">
-                        <span class="skill-tag">Public Speaking</span>
-                        <span class="skill-tag">Agile Teamwork</span>
-                        <span class="skill-tag">Problem Solving</span>
-                        <span class="skill-tag">Spoken English</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- EXPERIENCE & EDUCATION -->
-    <section id="experience">
-        <div class="container">
-            <div class="card-grid">
-                <!-- Training -->
-                <div data-aos="fade-right">
-                    <div class="section-header">
-                        <h2>Training & Internship</h2>
-                        <div class="underline"></div>
+                <!-- Card 2: Web Development -->
+                <div class="skill-card">
+                    <div class="skill-card-icon-wrap">
+                        <i class="fas fa-laptop-code"></i>
                     </div>
-                    <div class="glass-card">
-                        <span class="meta">08/2025 - CURRENT</span>
-                        <h3 style="color:var(--primary);">Academy for Careers in Technology (ACT)</h3>
-                        <p style="font-size: 0.9rem; margin-top: 10px; color:#666;">
-                            <b>Powered by Freshworks & Edunet Foundation</b><br>
-                            Specializing in Full Stack Web Development. Gaining hands-on experience in building enterprise-ready interfaces and handling data management through SQL and Python.
-                        </p>
+                    <h3>Web Development</h3>
+                    <div class="skill-badges-container">
+                        <span class="skill-pill">Responsive Web Design (RWD)</span>
+                        <span class="skill-pill">Cross-Browser Compatibility</span>
+                        <span class="skill-pill">UI/UX Implementation</span>
+                        <span class="skill-pill">PHP</span>
+                        <span class="skill-pill">MySQL</span>
                     </div>
                 </div>
-                <!-- Education -->
-                <div data-aos="fade-left">
-                    <div class="section-header">
-                        <h2>Education</h2>
-                        <div class="underline"></div>
+
+                <!-- Card 3: Integrations -->
+                <div class="skill-card">
+                    <div class="skill-card-icon-wrap">
+                        <i class="fas fa-plug"></i>
                     </div>
-                    <div class="glass-card" style="margin-bottom: 1rem;">
-                        <h3>Class 12 (Commerce)</h3>
-                        <p>Telangana Open School Society, Hyderabad | 52%</p>
-                        <span class="meta">2024 - 2025</span>
-                    <br>
-                        <h3>Class 10</h3>
-                        <p>Master Mind High School, Gujarat | 54.78%</p>
-                        <span class="meta">2012 - 2013</span>
+                    <h3>Integrations</h3>
+                    <div class="skill-badges-container">
+                        <span class="skill-pill">Razorpay Payment Gateway</span>
+                        <span class="skill-pill">OTP Authentication (Gmail/Email)</span>
+                        <span class="skill-pill">REST APIs</span>
+                        <span class="skill-pill">Shiprocket API</span>
+                    </div>
+                </div>
+
+                <!-- Card 4: Tools & Practices -->
+                <div class="skill-card">
+                    <div class="skill-card-icon-wrap">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Tools & Practices</h3>
+                    <div class="skill-badges-container">
+                        <span class="skill-pill">Visual Studio Code</span>
+                        <span class="skill-pill">Git</span>
+                        <span class="skill-pill">Canva</span>
+                        <span class="skill-pill">SEO</span>
+                        <span class="skill-pill">Performance Optimization</span>
+                        <span class="skill-pill">Debugging</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects">
+    <!-- ==========================================================================
+         5. WORK EXPERIENCE
+         ========================================================================== -->
+    <section id="experience" class="experience-section">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Practical Work</h2>
-                <div class="underline"></div>
-            </div>
-            <div class="card-grid">
-                <!-- Project 1 -->
-                <div class="project-card" data-aos="fade-up">
-                    <div class="project-img">
-                        <img src="./images/my_project.png" alt="" width="100%" height="100%">
-                        <!-- <i class="fas fa-calendar-alt"></i> -->
-                        <div class="project-overlay">
-                            <a href="https://meenamurali1217-dot.github.io/makeMyEvent/" target="_blank" class="btn-accent" style="text-decoration:none;">View Case Study</a>
-                        </div>
-                    </div>
-                    <div class="project-body">
-                        <h3>Event-Nest</h3>
-                        <p style="font-size: 0.9rem; color:#666; margin-top: 10px;">A smart service-aggregator platform that streamlines event planning by connecting users with catering, decoration, and photography vendors.</p>
-                        <div class="skills-container" style="margin-top:15px;">
-                            <span class="skill-tag">JS</span><span class="skill-tag">CSS</span><span class="skill-tag">GitHub</span>
-                        </div>
-                    </div>
+            <div class="experience-master-grid">
+                <!-- Left Sidebar Header -->
+                <div class="exp-left-sidebar">
+                    <span class="badge-pill">MY JOURNEY</span>
+                    <h2 class="exp-main-title">
+                        Professional<br>
+                        <span class="highlight-wrap">
+                            <span class="text-blue">Experience</span>
+                            <svg class="yellow-curve-small" viewBox="0 0 100 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 7C30 2 70 2 98 7" stroke="#FFD21F" stroke-width="4" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </h2>
+                    <p class="exp-sidebar-desc">
+                        Hands-on professional experience delivering end-to-end web applications and specialized software development training.
+                    </p>
+
+                    <a href="Meena_latest_resume.pdf" target="_blank" class="btn-resume-cta">
+                        <span>View Full Resume</span> <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <!-- Project 2 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="project-img" style="background: #e3f2fd;">
-                        <img src="./images/calculater.png" alt="" width="100%" height="100%">
-                        <!-- <i class="fas fa-calculator" style="color:#014f86;"></i> -->
-                        <div class="project-overlay">
-                            <a href="https://calculater-with-js.netlify.app" target="_blank" class="btn-accent" style="text-decoration:none;">Launch App</a>
+
+                <!-- Right Vertical Timeline Tracks -->
+                <div class="exp-timeline-wrapper">
+                    <div class="timeline-vertical-line"></div>
+
+                    <!-- Timeline Item 1: Webbingpro technologies -->
+                    <div class="exp-timeline-row">
+                        <div class="timeline-node-dot"></div>
+                        <div class="timeline-year-pill">04/2026 – 08/2026</div>
+
+                        <div class="timeline-card-modern">
+                            <div class="timeline-header-row">
+                                <div>
+                                    <h3 class="role-title-blue">Frontend & Backend Developer</h3>
+                                    <p class="role-subtitle-text">Webbingpro technologies</p>
+                                </div>
+                                <div class="briefcase-circle-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                            </div>
+
+                            <ul class="exp-bullet-list">
+                                <li>
+                                    <span class="blue-check-circle"><i class="fas fa-check"></i></span>
+                                    <span>Delivered fully dynamic, responsive websites end-to-end—from UI design to deployment—using HTML5, CSS3, JavaScript, Bootstrap, React.js, and PHP.</span>
+                                </li>
+                                <li>
+                                    <span class="blue-check-circle"><i class="fas fa-check"></i></span>
+                                    <span>Integrated the Razorpay payment gateway for secure online transactions and the Shiprocket API for automated order shipment and logistics tracking on e-commerce websites.</span>
+                                </li>
+                                <li>
+                                    <span class="blue-check-circle"><i class="fas fa-check"></i></span>
+                                    <span>Implemented Gmail-based OTP login for user authentication and account security.</span>
+                                </li>
+                                <li>
+                                    <span class="blue-check-circle"><i class="fas fa-check"></i></span>
+                                    <span>Handled WordPress website customization, theme and plugin updates, and ongoing maintenance to keep client sites secure and up to date.</span>
+                                </li>
+                                <li>
+                                    <span class="blue-check-circle"><i class="fas fa-check"></i></span>
+                                    <span>Ensured cross-browser compatibility, mobile responsiveness, and SEO-optimized performance across delivered projects, improving load times and search visibility.</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="project-body">
-                        <h3>Precision Calculator</h3>
-                        <p style="font-size: 0.9rem; color:#666; margin-top: 10px;">A high-performance web calculator implementing real-time DOM manipulation and responsive UI principles.</p>
-                        <div class="skills-container" style="margin-top:15px;">
-                            <span class="skill-tag">HTML</span><span class="skill-tag">DOM Logic</span><span class="skill-tag">Netlify</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 3 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-img" style="background: #e8f5e9;">
-                        <!-- Using a generic background since image is not provided -->
-                         <img src="./images/healthcare.png 2026-05-05 142050.png" alt="" width="100%" height="100%">
-                        <!-- <h1 style="color: #014f86;"><i class="fas fa-heartbeat"></i></h1> -->
-                        <div class="project-overlay">
-                            <a href="https://meenamurali1217-dot.github.io/Day-4/" target="_blank" class="btn-accent" style="text-decoration:none;">View Website</a>
-                        </div>
-                    </div>
-                    <div class="project-body">
-                        <h3>Health Care</h3>
-                        <p style="font-size: 0.9rem; color:#666; margin-top: 10px;">A manually coded health care landing page focusing on HTML structure, CSS styling, and basic JavaScript logic.</p>
-                        <div class="skills-container" style="margin-top:15px;">
-                            <span class="skill-tag">HTML</span><span class="skill-tag">CSS</span><span class="skill-tag">JavaScript</span>
+
+                    <!-- Timeline Item 2: ACT Program Specialization -->
+                    <div class="exp-timeline-row">
+                        <div class="timeline-node-dot"></div>
+                        <div class="timeline-year-pill">2025 – 2026</div>
+
+                        <div class="timeline-card-modern">
+                            <div class="timeline-header-row">
+                                <div>
+                                    <h3 class="role-title-blue">Full-Stack Web Development Trainee</h3>
+                                    <p class="role-subtitle-text">Academy for Careers in Technology (ACT) Program | Freshworks & Edunet Foundation</p>
+                                </div>
+                                <div class="briefcase-circle-icon">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                            </div>
+
+                            <ul class="exp-bullet-list">
+                                <li>
+                                    <span class="blue-check-circle"><i class="fas fa-check"></i></span>
+                                    <span>Completed specialized training program in Full-Stack Web Development delivered by Freshworks and Edunet Foundation.</span>
+                                </li>
+                                <li>
+                                    <span class="blue-check-circle"><i class="fas fa-check"></i></span>
+                                    <span>Mastered full-stack web technologies including HTML5, CSS3, JavaScript (ES6+), React.js, PHP, MySQL, and REST APIs.</span>
+                                </li>
+                                <li>
+                                    <span class="blue-check-circle"><i class="fas fa-check"></i></span>
+                                    <span>Implemented hands-on real-world projects with performance optimization, responsive layouts, and cross-browser testing.</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -322,78 +381,656 @@
         </div>
     </section>
 
-    <!-- CERTIFICATIONS, LANGUAGES & INTERESTS -->
-    <section id="extras" style="background: #fff;">
+    <!-- ==========================================================================
+         6. KEY PROJECTS
+         ========================================================================== -->
+    <section id="projects" class="projects-section">
         <div class="container">
-            <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-                <div data-aos="fade-up">
-                    <div class="section-header"><h2>Certifications</h2><div class="underline"></div></div>
-                    <ul style="list-style: none; color: #555; font-size: 0.9rem;">
-                        <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color:var(--accent);"></i> Web Development for Beginner (Simplilearn, 2026)</li>
-                        <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color:var(--accent);"></i> Introduction to HTML & CSS (Simplilearn, 2025)</li>
-                        <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color:var(--accent);"></i> Python Course for Beginners (SCALER, 2026)</li>
-                        <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color:var(--accent);"></i> DBMS Course - Fundamentals and Advanced (SCALER, 2026)</li>
-                        <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color:var(--accent);"></i> Communication Skills & Public Speaking (Simplilearn, 2026)</li>
-                        <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color:var(--accent);"></i> Spoken English Course (Simplilearn, 2026)</li>
-                    </ul>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="100">
-                    <div class="section-header"><h2>Languages</h2><div class="underline"></div></div>
-                    <ul style="list-style: none; color: #555; font-size: 0.9rem;">
-                        <li style="margin-bottom: 8px;"><i class="fas fa-language" style="color:var(--primary);"></i> English</li>
-                        <li style="margin-bottom: 8px;"><i class="fas fa-language" style="color:var(--primary);"></i> Hindi</li>
-                        <li style="margin-bottom: 8px;"><i class="fas fa-language" style="color:var(--primary);"></i> Telugu</li>
-                    </ul>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="200">
-                    <div class="section-header"><h2>Hobbies & Interests</h2><div class="underline"></div></div>
-                    <div class="skills-container">
-                        <span class="skill-tag">Listening to music</span>
-                        <span class="skill-tag">Stitching dresses & creative designs</span>
-                        <span class="skill-tag">Productive learning activities</span>
-                        <span class="skill-tag">Trying new skills</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-        <div class="container">
-            <div class="contact-box" data-aos="zoom-in">
+            <div class="section-title-row">
                 <div>
-                    <h2 style="font-family:'Playfair Display'; font-size: 2.5rem;">Let's Build <br>The Future.</h2>
-                    <p style="margin: 20px 0; opacity: 0.9;">Available for entry-level roles in Software Development and Collaborations.</p>
-                    <div style="margin-top: 30px;">
-                        <p><i class="fas fa-envelope"></i> meena.murali1217@gmail.com</p>
-                        <p><i class="fab fa-linkedin"></i><a href="https://linkedin.com/in/meena-murali" target="_blank" style="color: var(--accent); text-decoration: underline;"> linkedin.com/in/meena-murali</a></p>
+                    <span class="section-badge">My Work</span>
+                    <h2 class="section-title">Key <span class="text-blue">Projects</span></h2>
+                </div>
+                <a href="#showcase" class="view-all-link">
+                    View 3D Showcase <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Key Project 1: Tejas Industrial Engineered Solutions -->
+                <div class="project-item-card">
+                    <div class="project-thumb logo-thumb logo-thumb-light">
+                        <img src="./images/tejas_logo.png" alt="Tejas Industrial Engineered Solutions" class="project-logo-img">
+                    </div>
+                    <div class="project-info-body">
+                        <h3>Tejas Industrial Engineered Solutions</h3>
+                        <p>Responsive industrial engineering website showcasing water treatment, power and energy, material handling, pumps, valves, automation, and process utility solutions.</p>
+                        <div class="project-badges">
+                            <span class="project-pill">HTML5</span>
+                            <span class="project-pill">CSS3</span>
+                            <span class="project-pill">JavaScript</span>
+                            <span class="project-pill">Bootstrap</span>
+                            <span class="project-pill">PHP</span>
+                            <span class="project-pill">MySQL</span>
+                        </div>
+                        <ul class="exp-bullet-list" style="margin: 12px 0 16px 0;">
+                            <li><span class="blue-check-circle"><i class="fas fa-check"></i></span> <span>Implemented interactive UI features and optimized front-end performance for faster page load times.</span></li>
+                            <li><span class="blue-check-circle"><i class="fas fa-check"></i></span> <span>Ensured cross-browser compatibility and consistent rendering across desktop and mobile devices.</span></li>
+                        </ul>
+                        <a href="https://tejaseng.com/" target="_blank" class="btn-view-project">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-                <form>
-                    <input type="text" placeholder="Full Name" required>
-                    <input type="email" placeholder="Email Address" required>
-                    <textarea placeholder="Your Message..." rows="4"></textarea>
-                    <button type="submit" class="btn-accent">Send Message</button>
-                </form>
+
+                <!-- Key Project 2: Mookambika Developers -->
+                <div class="project-item-card">
+                    <div class="project-thumb logo-thumb logo-thumb-dark">
+                        <img src="./images/mookambika_logo.png" alt="Mookambika Developers" class="project-logo-img">
+                    </div>
+                    <div class="project-info-body">
+                        <h3>Mookambika Developers</h3>
+                        <p>Responsive real estate website showcasing project details, amenities, master plans, gallery, location advantages, NRI services, blogs, and enquiry forms with lead management & WhatsApp integration.</p>
+                        <div class="project-badges">
+                            <span class="project-pill">HTML5</span>
+                            <span class="project-pill">CSS3</span>
+                            <span class="project-pill">JavaScript</span>
+                            <span class="project-pill">Bootstrap</span>
+                            <span class="project-pill">React.js</span>
+                            <span class="project-pill">PHP</span>
+                            <span class="project-pill">MySQL</span>
+                        </div>
+                        <ul class="exp-bullet-list" style="margin: 12px 0 16px 0;">
+                            <li><span class="blue-check-circle"><i class="fas fa-check"></i></span> <span>Optimized site performance and implemented on-page SEO best practices to improve search visibility.</span></li>
+                            <li><span class="blue-check-circle"><i class="fas fa-check"></i></span> <span>Delivered a cross-browser compatible experience with consistent styling across devices.</span></li>
+                        </ul>
+                        <a href="https://mookambikadevelopers.in/" target="_blank" class="btn-view-project">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Key Project 3: Manisha Diabetes & Endocrine Centre -->
+                <div class="project-item-card">
+                    <div class="project-thumb logo-thumb logo-thumb-light">
+                        <img src="./images/manisha_logo.png" alt="Manisha Diabetes & Endocrine Centre" class="project-logo-img">
+                    </div>
+                    <div class="project-info-body">
+                        <h3>Manisha Diabetes & Endocrine Centre</h3>
+                        <p>Responsive healthcare website for a diabetes and endocrinology clinic, with user-friendly pages for doctor profile, services, treatments, testimonials, FAQs, and contact information.</p>
+                        <div class="project-badges">
+                            <span class="project-pill">HTML5</span>
+                            <span class="project-pill">CSS3</span>
+                            <span class="project-pill">JavaScript</span>
+                            <span class="project-pill">Bootstrap</span>
+                            <span class="project-pill">PHP</span>
+                        </div>
+                        <ul class="exp-bullet-list" style="margin: 12px 0 16px 0;">
+                            <li><span class="blue-check-circle"><i class="fas fa-check"></i></span> <span>Focused on performance optimization and mobile responsiveness for a smooth user experience.</span></li>
+                            <li><span class="blue-check-circle"><i class="fas fa-check"></i></span> <span>Ensured reliable cross-browser functionality and polished UI/UX throughout the site.</span></li>
+                        </ul>
+                        <a href="https://drmanishaendocrine.com/" target="_blank" class="btn-view-project">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Key Project 4: MakeMyEvent -->
+                <div class="project-item-card">
+                    <div class="project-thumb logo-thumb logo-thumb-light">
+                        <img src="./images/makemyevent_logo.png" alt="MakeMyEvent" class="project-logo-img">
+                    </div>
+                    <div class="project-info-body">
+                        <h3>MakeMyEvent</h3>
+                        <p>Event platform connecting customers with trusted vendors for events, including catering, decoration, and photography services.</p>
+                        <div class="project-badges">
+                            <span class="project-pill">HTML5</span>
+                            <span class="project-pill">CSS3</span>
+                            <span class="project-pill">JavaScript</span>
+                            <span class="project-pill">Bootstrap</span>
+                            <span class="project-pill">Python</span>
+                            <span class="project-pill">MySQL</span>
+                        </div>
+                        <ul class="exp-bullet-list" style="margin: 12px 0 16px 0;">
+                            <li><span class="blue-check-circle"><i class="fas fa-check"></i></span> <span>Structured dynamic content pages with categories and tags in PHP and MySQL, improving content organization.</span></li>
+                            <li><span class="blue-check-circle"><i class="fas fa-check"></i></span> <span>Implemented SEO-friendly URL structures and on-page optimization to improve blog discoverability.</span></li>
+                        </ul>
+                        <a href="https://github.com/meenamurali1217-dot/makeMyEvent---4.git" target="_blank" class="btn-view-project">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project: ShineEx -->
+                <div class="project-item-card">
+                    <div class="project-thumb logo-thumb logo-thumb-light">
+                        <img src="./images/shineex_logo.png" alt="ShineEx Services" class="project-logo-img">
+                    </div>
+                    <div class="project-info-body">
+                        <h3>ShineEx</h3>
+                        <p>Modern services platform featuring dynamic service pages, banner designs, booking enquiry flows and responsive user interface.</p>
+                        <div class="project-badges">
+                            <span class="project-pill">HTML5</span>
+                            <span class="project-pill">CSS3</span>
+                            <span class="project-pill">JavaScript</span>
+                            <span class="project-pill">Bootstrap</span>
+                            <span class="project-pill">PHP</span>
+                            <span class="project-pill">Service UI</span>
+                        </div>
+                        <ul class="exp-bullet-list" style="margin: 12px 0 16px 0;">
+                            <li><span class="blue-check-circle"><i class="fas fa-check"></i></span> <span>Designed dynamic service pages, booking enquiry flows, and custom banner graphical assets.</span></li>
+                            <li><span class="blue-check-circle"><i class="fas fa-check"></i></span> <span>Enhanced mobile responsiveness, page speed performance, and clean component styling.</span></li>
+                        </ul>
+                        <a href="https://demo-websites.xyz/shine-ex/" target="_blank" class="btn-view-project">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project: Renova Spaces -->
+                <div class="project-item-card">
+                    <div class="project-thumb logo-thumb logo-thumb-dark">
+                        <img src="./images/renova_logo.png" alt="Renova Spaces" class="project-logo-img">
+                    </div>
+                    <div class="project-info-body">
+                        <h3>Renova Spaces</h3>
+                        <p>Luxury interior design & renovation platform featuring elegant project showcase galleries, custom service cards, and premium aesthetic UI/UX.</p>
+                        <div class="project-badges">
+                            <span class="project-pill">HTML5</span>
+                            <span class="project-pill">CSS3</span>
+                            <span class="project-pill">JavaScript</span>
+                            <span class="project-pill">Bootstrap</span>
+                            <span class="project-pill">PHP</span>
+                            <span class="project-pill">Interior Design UI</span>
+                        </div>
+                        <ul class="exp-bullet-list" style="margin: 12px 0 16px 0;">
+                            <li><span class="blue-check-circle"><i class="fas fa-check"></i></span> <span>Designed luxury interior design project showcase galleries and interactive service cards.</span></li>
+                            <li><span class="blue-check-circle"><i class="fas fa-check"></i></span> <span>Implemented high-definition image optimization, typography styling, and smooth UI flow.</span></li>
+                        </ul>
+                        <a href="https://demo-websites.xyz/renova/" target="_blank" class="btn-view-project">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project: Synergia Legal -->
+                <div class="project-item-card">
+                    <div class="project-thumb logo-thumb logo-thumb-light">
+                        <img src="./images/synergia_logo.png" alt="Synergia Legal" class="project-logo-img">
+                    </div>
+                    <div class="project-info-body">
+                        <h3>Synergia Legal</h3>
+                        <p>Corporate advisory, transactions & regulatory firm platform with practice area service pages, modern navigation, and responsive corporate UI/UX.</p>
+                        <div class="project-badges">
+                            <span class="project-pill">HTML5</span>
+                            <span class="project-pill">CSS3</span>
+                            <span class="project-pill">JavaScript</span>
+                            <span class="project-pill">Bootstrap</span>
+                            <span class="project-pill">PHP</span>
+                            <span class="project-pill">Corporate UI</span>
+                        </div>
+                        <ul class="exp-bullet-list" style="margin: 12px 0 16px 0;">
+                            <li><span class="blue-check-circle"><i class="fas fa-check"></i></span> <span>Built legal practice area service pages, corporate advisory layouts, and modern navigation.</span></li>
+                            <li><span class="blue-check-circle"><i class="fas fa-check"></i></span> <span>Ensured cross-browser consistency, mobile-first responsiveness, and professional UI polish.</span></li>
+                        </ul>
+                        <a href="https://demo-websites.xyz/Syn/" target="_blank" class="btn-view-project">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project: Finveda Wealth -->
+                <div class="project-item-card">
+                    <div class="project-thumb logo-thumb logo-thumb-light">
+                        <img src="./images/finveda_logo.png" alt="Finveda Wealth" class="project-logo-img">
+                    </div>
+                    <div class="project-info-body">
+                        <h3>Finveda Wealth</h3>
+                        <p>Financial management & wealth consulting platform with landing page designs, service card redesigns, color theme & typography optimization.</p>
+                        <div class="project-badges">
+                            <span class="project-pill">HTML5</span>
+                            <span class="project-pill">CSS3</span>
+                            <span class="project-pill">JavaScript</span>
+                            <span class="project-pill">React.js</span>
+                            <span class="project-pill">UI/UX Design</span>
+                        </div>
+                        <ul class="exp-bullet-list" style="margin: 12px 0 16px 0;">
+                            <li><span class="blue-check-circle"><i class="fas fa-check"></i></span> <span>Designed financial landing pages, wealth service cards, and interactive consulting widgets.</span></li>
+                            <li><span class="blue-check-circle"><i class="fas fa-check"></i></span> <span>Optimized color theme palettes, typography hierarchies, and React component performance.</span></li>
+                        </ul>
+                        <a href="https://demo-websites.xyz/fin/" target="_blank" class="btn-view-project">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project: Webbing Pro Technologies -->
+                <div class="project-item-card">
+                    <div class="project-thumb logo-thumb logo-thumb-light">
+                        <img src="./images/webbingpro_logo.png" alt="Webbing Pro Technologies" class="project-logo-img">
+                    </div>
+                    <div class="project-info-body">
+                        <h3>Webbing Pro Technologies</h3>
+                        <p>IT & web services corporate website featuring service page designs, banner creation, responsive layout improvements & brand styling.</p>
+                        <div class="project-badges">
+                            <span class="project-pill">WordPress</span>
+                            <span class="project-pill">PHP</span>
+                            <span class="project-pill">JavaScript</span>
+                            <span class="project-pill">CSS3</span>
+                            <span class="project-pill">Banner Design</span>
+                        </div>
+                        <ul class="exp-bullet-list" style="margin: 12px 0 16px 0;">
+                            <li><span class="blue-check-circle"><i class="fas fa-check"></i></span> <span>Executed WordPress theme customization, custom service banners, and plugin configurations.</span></li>
+                            <li><span class="blue-check-circle"><i class="fas fa-check"></i></span> <span>Improved overall site security, mobile responsiveness, and page loading speed performance.</span></li>
+                        </ul>
+                        <a href="https://webbingprotechnologies.in/" target="_blank" class="btn-view-project">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project: Heaven Touch Beauty & Spa -->
+                <div class="project-item-card">
+                    <div class="project-thumb logo-thumb logo-thumb-dark">
+                        <img src="./images/heaventouch_logo.png" alt="Heaven Touch Beauty & Spa" class="project-logo-img">
+                    </div>
+                    <div class="project-info-body">
+                        <h3>Heaven Touch Beauty & Spa</h3>
+                        <p>Beauty & wellness spa website with hero section redesigns, service page designs, image editing/enhancement & FAQ page design.</p>
+                        <div class="project-badges">
+                            <span class="project-pill">HTML5</span>
+                            <span class="project-pill">CSS3</span>
+                            <span class="project-pill">JavaScript</span>
+                            <span class="project-pill">Graphic Design</span>
+                            <span class="project-pill">Image Editing</span>
+                        </div>
+                        <ul class="exp-bullet-list" style="margin: 12px 0 16px 0;">
+                            <li><span class="blue-check-circle"><i class="fas fa-check"></i></span> <span>Designed hero banner graphics, spa treatment service pages, and interactive FAQ sections.</span></li>
+                            <li><span class="blue-check-circle"><i class="fas fa-check"></i></span> <span>Performed custom image editing and enhancement for visual appeal and mobile UX.</span></li>
+                        </ul>
+                        <a href="https://demo-websites.xyz/heaventouch-spa-gajularamaram.in/" target="_blank" class="btn-view-project">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Meena Murali. Crafted with Passion in Hyderabad.</p>
+    <!-- ==========================================================================
+         6B. ACCOMPLISHMENTS & SCOPE OF WORK
+         ========================================================================== -->
+    <section id="deliverables" class="deliverables-section">
+        <div class="container">
+            <div class="section-title-row">
+                <div>
+                    <span class="section-badge">Project Scope & Accomplishments</span>
+                    <h2 class="section-title">Design, UI/UX & <span class="text-blue">Content Services</span></h2>
+                </div>
+                <p class="section-desc">
+                    Comprehensive design, UI/UX enhancements, and blog content creation completed across all client projects.
+                </p>
+            </div>
+
+            <div class="deliverables-grid">
+                <!-- Card 1: Page Redesigns & Layouts -->
+                <div class="deliverable-card">
+                    <div class="deliverable-card-icon icon-blue">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Page & Layout Redesigns</h3>
+                    <ul class="deliverable-list">
+                        <li><i class="fas fa-check-circle"></i> Homepage Redesigns</li>
+                        <li><i class="fas fa-check-circle"></i> Landing Page Designs</li>
+                        <li><i class="fas fa-check-circle"></i> Product & Service Page Designs</li>
+                        <li><i class="fas fa-check-circle"></i> Contact & About Page Designs</li>
+                        <li><i class="fas fa-check-circle"></i> Blog Page & FAQ Page Designs</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Visual & Graphic Design -->
+                <div class="deliverable-card">
+                    <div class="deliverable-card-icon icon-yellow">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Graphics & Card Redesigns</h3>
+                    <ul class="deliverable-list">
+                        <li><i class="fas fa-check-circle"></i> Product Card Redesigns</li>
+                        <li><i class="fas fa-check-circle"></i> Service Card Redesigns</li>
+                        <li><i class="fas fa-check-circle"></i> Banner Creation & Hero Sections</li>
+                        <li><i class="fas fa-check-circle"></i> Custom Graphic Design</li>
+                        <li><i class="fas fa-check-circle"></i> Image Editing & Enhancement</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Blog & Content Creation -->
+                <div class="deliverable-card">
+                    <div class="deliverable-card-icon icon-green">
+                        <i class="fas fa-pen-nib"></i>
+                    </div>
+                    <h3>Blog Content Creation</h3>
+                    <ul class="deliverable-list">
+                        <li><i class="fas fa-check-circle"></i> Blog Content for Multiple Sites</li>
+                        <li><i class="fas fa-check-circle"></i> Custom Blog Featured Images</li>
+                        <li><i class="fas fa-check-circle"></i> Blog Layouts & Typography Styling</li>
+                        <li><i class="fas fa-check-circle"></i> SEO Optimization & Readability</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4: Modern UI/UX Improvements -->
+                <div class="deliverable-card">
+                    <div class="deliverable-card-icon icon-red">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3>UI/UX & Layout Enhancements</h3>
+                    <ul class="deliverable-list">
+                        <li><i class="fas fa-check-circle"></i> Responsive Layout Improvements</li>
+                        <li><i class="fas fa-check-circle"></i> Color Theme Optimization</li>
+                        <li><i class="fas fa-check-circle"></i> Typography Improvements</li>
+                        <li><i class="fas fa-check-circle"></i> Modern UI/UX Enhancements</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         7. 3D PROJECT SHOWCASE ("Things I've Built")
+         ========================================================================== -->
+    <section id="showcase" class="showcase-3d-section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 48px;">
+                <span class="section-badge">3D Showcase</span>
+                <h2 class="section-title">Things I've <span class="text-blue">Built</span></h2>
+                <p class="section-desc" style="margin: 0 auto;">
+                    Interactive 3D device showcase featuring high-performance live production applications.
+                </p>
+            </div>
+
+            <div class="showcase-wrapper">
+                <!-- Floating Orbiting Tech Badges -->
+                <div class="orbit-badge orbit-1"><i class="fab fa-html5"></i> HTML5</div>
+                <div class="orbit-badge orbit-2"><i class="fab fa-css3-alt"></i> CSS3</div>
+                <div class="orbit-badge orbit-3"><i class="fab fa-react"></i> React.js</div>
+                <div class="orbit-badge orbit-4"><i class="fab fa-php"></i> PHP</div>
+                <div class="orbit-badge orbit-5"><i class="fab fa-js"></i> JavaScript</div>
+
+                <!-- 3D Device Container -->
+                <div class="device-3d-container">
+                    <div class="laptop-frame">
+                        <div class="laptop-camera-dot"></div>
+                        <div class="laptop-screen">
+                            <img src="./images/my_project.png" alt="Tejas Industrial Website in Laptop Display">
+                        </div>
+                    </div>
+                    <div class="laptop-base">
+                        <div class="laptop-notch"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         8. EDUCATION & ADDITIONAL DETAILS
+         ========================================================================== -->
+    <section id="education" class="education-section">
+        <div class="container">
+            <div class="education-header">
+                <span class="section-badge badge-pill">MY BACKGROUND</span>
+                <h2 class="section-title">
+                    Education <span class="highlight-wrap">
+                        & More
+                        <svg class="yellow-curve-small" viewBox="0 0 100 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 7C30 2 70 2 98 7" stroke="#FFD21F" stroke-width="4" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                </h2>
+            </div>
+
+            <div class="education-container-grid">
+                <!-- Left 3D Graduation Visual -->
+                <div class="edu-3d-visual-wrapper">
+                    <div class="edu-3d-glow"></div>
+                    <img src="./images/3d_education_cap.png" alt="3D Education Graduation Cap & Books" class="edu-3d-img">
+                </div>
+
+                <!-- Right 4 Info Cards Grid -->
+                <div class="education-cards-wrapper">
+                    <!-- Education Card -->
+                    <div class="info-card edu-card-3d">
+                        <div class="info-card-header">
+                            <div class="info-icon-circle blue-glow">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h3>Education</h3>
+                            </div>
+                        </div>
+                        <ul class="info-list-styled" style="gap: 16px;">
+                            <li>
+                                <div>
+                                    <h4 class="edu-degree-title">Bachelor of Computer Applications (BCA)</h4>
+                                    <p class="edu-subtext">Indira Gandhi National Open University (IGNOU) • 2022–2025</p>
+                                    <div class="edu-year-badge">GPA: 7.06</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h4 class="edu-degree-title">Intermediate</h4>
+                                    <p class="edu-subtext">Telangana Open School Society (TOSS) • 2020–2022</p>
+                                    <div class="edu-year-badge">GPA: 4.54</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h4 class="edu-degree-title">10th Standard</h4>
+                                    <p class="edu-subtext">Master Mind High School • 2012–2013</p>
+                                    <div class="edu-year-badge">GPA: 5.82</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Certifications & Courses Card -->
+                    <div class="info-card edu-card-3d">
+                        <div class="info-card-header">
+                            <div class="info-icon-circle blue-glow">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h3>Certifications & Courses</h3>
+                            </div>
+                        </div>
+                        <h4 class="edu-degree-title">Academy for Careers in Technology (ACT) Program</h4>
+                        <p class="edu-subtext">Freshworks & Edunet Foundation</p>
+                        <div class="edu-year-badge" style="margin-bottom: 12px;">Specialization: Full-Stack Web Development | 2025–2026</div>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Comprehensive full-stack development program focused on modern frontend & backend technologies, REST APIs, and database engineering.</p>
+                    </div>
+
+                    <!-- Languages Card -->
+                    <div class="info-card edu-card-3d">
+                        <div class="info-card-header">
+                            <div class="info-icon-circle blue-glow">
+                                <svg class="lang-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 8l6 6M4 14l6-6 2 2M2 5h12M9 2v3M12 18l4-8 4 8M14 14h6"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Languages Known</h3>
+                            </div>
+                        </div>
+                        <ul class="info-list-styled">
+                            <li><span class="list-bullet-dot"></span> <span><strong>English</strong> – Professional Proficiency</span></li>
+                            <li><span class="list-bullet-dot"></span> <span><strong>Telugu</strong> – Native / Fluent</span></li>
+                            <li><span class="list-bullet-dot"></span> <span><strong>Hindi</strong> – Fluent</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Key Competencies Card -->
+                    <div class="info-card edu-card-3d">
+                        <div class="info-card-header">
+                            <div class="info-icon-circle orange-glow">
+                                <i class="fas fa-crosshairs"></i>
+                            </div>
+                            <div>
+                                <h3>Strengths & Practices</h3>
+                            </div>
+                        </div>
+                        <ul class="info-list-styled strengths-list">
+                            <li><span class="list-bullet-diamond">♦</span> <span>Mobile-First Design</span></li>
+                            <li><span class="list-bullet-diamond">♦</span> <span>Basic SEO Implementation</span></li>
+                            <li><span class="list-bullet-diamond">♦</span> <span>Performance Optimization</span></li>
+                            <li><span class="list-bullet-diamond">♦</span> <span>Quick Learner & Adaptable</span></li>
+                            <li><span class="list-bullet-diamond">♦</span> <span>Effective Team Collaboration</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wave Transition: Education to Contact -->
+    <div class="wave-divider wave-top">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 60C240 120 480 0 720 60C960 120 1200 0 1440 60V120H0V60Z" fill="#003566"/>
+        </svg>
+    </div>
+
+    <!-- ==========================================================================
+         9. CONTACT SECTION
+         ========================================================================== -->
+    <section id="contact" class="contact-section">
+        <!-- Floating 3D Paper Plane & Flight Path -->
+        <div class="paper-plane-floating-container">
+            <svg class="flight-path-dash" viewBox="0 0 400 200" fill="none">
+                <path d="M10 180 Q 150 10 380 50" stroke="rgba(255, 255, 255, 0.25)" stroke-width="2" stroke-dasharray="6 6"/>
+            </svg>
+            <img src="./images/3d_paper_plane.png" alt="3D Paper Plane" class="paper-plane-3d-img">
+        </div>
+
+        <div class="container">
+            <div class="contact-grid-wrapper">
+                <!-- Left Details -->
+                <div class="contact-left-details">
+                    <span class="contact-badge-pill">LET'S CONNECT</span>
+                    <h2 class="contact-title">
+                        Let's Build Something<br>Great <span class="text-yellow">Together!</span>
+                    </h2>
+                    <p class="contact-desc">
+                        Available for Frontend, PHP, React.js and Web Development opportunities. Feel free to reach out!
+                    </p>
+
+                    <div class="contact-info-grid">
+                        <a href="tel:+919515043914" class="contact-info-card">
+                            <div class="yellow-icon-badge"><i class="fas fa-phone-alt"></i></div>
+                            <span>+91-9515043914</span>
+                        </a>
+
+                        <a href="mailto:meena.murali1217@gmail.com" class="contact-info-card">
+                            <div class="yellow-icon-badge"><i class="fas fa-envelope"></i></div>
+                            <span>meena.murali1217@gmail.com</span>
+                        </a>
+
+                        <div class="contact-info-card">
+                            <div class="yellow-icon-badge"><i class="fas fa-map-marker-alt"></i></div>
+                            <span>Hyderabad, India</span>
+                        </div>
+
+                        <a href="https://linkedin.com/in/meena-murali" target="_blank" class="contact-info-card">
+                            <div class="yellow-icon-badge"><i class="fab fa-linkedin-in"></i></div>
+                            <span>linkedin.com/in/meena-murali</span>
+                        </a>
+
+                        <a href="https://github.com/meenamurali1217-dot" target="_blank" class="contact-info-card contact-info-wide">
+                            <div class="yellow-icon-badge"><i class="fab fa-github"></i></div>
+                            <span>github.com/meenamurali1217-dot</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Contact Form Card & Plant -->
+                <div class="contact-form-wrapper">
+                    <div class="contact-form-card-3d">
+                        <form id="portfolioContactForm" onsubmit="handleFormSubmit(event)">
+                            <div class="form-group-custom">
+                                <i class="far fa-user input-icon"></i>
+                                <input type="text" class="input-control" placeholder="Your Name" required>
+                            </div>
+
+                            <div class="form-group-custom">
+                                <i class="far fa-envelope input-icon"></i>
+                                <input type="email" class="input-control" placeholder="Your Email Address" required>
+                            </div>
+
+                            <div class="form-group-custom">
+                                <i class="far fa-comment-dots input-icon"></i>
+                                <textarea class="input-control textarea-control" placeholder="Your Message or Project Details..." rows="3" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-send-yellow" id="submitBtn">
+                                <i class="fas fa-paper-plane btn-plane-icon"></i> <span>Send Message</span>
+                            </button>
+                        </form>
+
+                        <div id="formSuccessMessage" class="form-success-alert" style="display:none;">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Message Sent!</strong>
+                                <p>Thank you for reaching out. Meena will respond shortly!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3D Green Potted Plant Visual -->
+                    <div class="potted-plant-3d-wrapper">
+                        <img src="./images/3d_potted_plant.png" alt="3D Green Potted Plant" class="potted-plant-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wave Transition: Contact to Footer -->
+    <div class="wave-divider wave-bottom">
+        <svg viewBox="0 0 1440 90" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0C360 80 1080 80 1440 0V90H0V0Z" fill="#F8FAFC"/>
+        </svg>
+    </div>
+
+    <!-- ==========================================================================
+         10. FOOTER
+         ========================================================================== -->
+    <footer class="footer-modern">
+        <div class="container footer-container">
+            <div class="footer-brand-box">
+                <a href="#hero" class="footer-brand-title">
+                    MEENA KOTA<span class="yellow-dot-inline"></span>
+                </a>
+                <span class="footer-brand-sub">Frontend & PHP Developer</span>
+            </div>
+
+            <div class="footer-copyright-text">
+                &copy; 2026 Meena Kota. All Rights Reserved.
+            </div>
+
+            <div class="footer-social-circles">
+                <a href="https://linkedin.com/in/meena-murali" target="_blank" class="footer-social-btn linkedin-btn" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/meenamurali1217-dot" target="_blank" class="footer-social-btn github-btn" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:meena.murali1217@gmail.com" class="footer-social-btn email-btn" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true, offset: 100 });
-        
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    </script>
+    <!-- Three.js Ambient Engine & UI Motion Scripts -->
+    <script src="js/three-scene.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
